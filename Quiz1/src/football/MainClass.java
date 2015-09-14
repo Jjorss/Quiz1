@@ -7,32 +7,32 @@ public class MainClass {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		int td;
-		double total_yards;
-		int interceptions;
-		int completions;
-		int att;
+		Double td;
+		Double total_yards;
+		Double interceptions;
+		Double completions;
+		Double att;
 
 		System.out.print("Total number of touch downs: ");
-		td = sc.nextInt();
+		td = sc.nextDouble();
 
 		System.out.print("Totla number of yards: ");
 		total_yards = sc.nextDouble();
 
 		System.out.print("Total nuber of interceptions: ");
-		interceptions = sc.nextInt();
+		interceptions = sc.nextDouble();
 
 		System.out.print("Total number of completions: ");
-		completions = sc.nextInt();
+		completions = sc.nextDouble();
 
 		System.out.print("Total number of pass attempts: ");
-		att = sc.nextInt();
+		att = sc.nextDouble();
 
-		System.out.print("Passer rating is "
-				+ passerRating(A(completions, att), B(total_yards, att), C(td, att), D(interceptions, att)));
+		System.out.printf( "Passer rating is %.2f"
+				 , passerRating(A(completions, att), B(total_yards, att), C(td, att), D(interceptions, att)));
 	}
 
-	public static double A(int comp, int att) {
+	public static double A(double comp, double att) {
 		double a = ((comp / att) - 0.3) * 5;
 		if (a > 2.375) {
 			a = 2.375;
@@ -42,7 +42,7 @@ public class MainClass {
 		return a;
 	}
 
-	public static double B(double yards, int att) {
+	public static double B(double yards, double att) {
 		double b = ((yards / att) - 3) * 0.25;
 		if (b > 2.375) {
 			b = 2.375;
@@ -53,7 +53,7 @@ public class MainClass {
 
 	}
 
-	public static double C(int td, int att) {
+	public static double C(double td, double att) {
 		double c = (td / att) * 20;
 		if (c > 2.375) {
 			c = 2.375;
@@ -63,7 +63,7 @@ public class MainClass {
 		return c;
 	}
 
-	public static double D(int interceptions, int att) {
+	public static double D(double interceptions, double att) {
 		double d = 2.375 - ((interceptions / att) * 25);
 		if (d > 2.375) {
 			d = 2.375;
